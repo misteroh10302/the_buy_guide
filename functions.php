@@ -183,7 +183,10 @@ function register_my_menu() {
 	register_nav_menu('footer-menu',__( 'Footer Menu' ));
 }
 
+
 add_action( 'init', 'register_my_menu' );
 
 // Disable GutenBerg
 add_filter('use_block_editor_for_post', '__return_false', 10);
+
+

@@ -96,6 +96,22 @@ p, .body-font, .body-font span {
      }
 }
 
+.large-body-copy {
+    p {
+        color: $black;
+        font-family: $sansSerif;
+        font-size: 3rem;
+        font-weight: 500 !important;
+        letter-spacing: 0;
+        line-height: 4.2rem;
+        @include for-phone-only {    
+            font-size: 2.5rem;
+            letter-spacing: 0;
+            line-height: 3.5rem;
+        }
+    }
+}
+
 
 .parent-category {
     font-size: 1.4rem;

@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: The Buy Guide Homepage
+* Template Name: The Buy Guide: Partnerships
 *
 * @package WordPress
 * @subpackage Twenty_Fourteen
@@ -10,9 +10,9 @@
 get_header();
 ?>
 
-<main id="primary" class="site-home">
-    <!-- Header Banner -->
-    <?php
+<main id="primary" class="partnerships">
+     <!-- Header Banner -->
+     <?php
         if( have_rows('header_banner') ):
             while( have_rows('header_banner') ): the_row();
                 $hp_banner_headline = get_sub_field('banner_headline');
@@ -24,7 +24,6 @@ get_header();
                     <h2 class="outlined-text">
                         <?php echo $hp_banner_headline ?>
                     </h2>
-        
                     <?php 
                         if( have_rows('button') ):
                             while( have_rows('button') ): the_row();
@@ -42,17 +41,53 @@ get_header();
             <?php endwhile;
         endif; 
     ?>
+   
+   <!-- Body Copy -->
+   <section class="p-y-6 page-width">
+        <div class="text-center large-body-copy">
+            <?php 
+                $value = get_field( "body_copy" );
+                if( $value ) {
+                    echo $value;
+                } 
+            ?>
+        </div>
+        <div class="brands-grid">
+            <?php 
+                    if( have_rows('brands_grid') ):
+                        while( have_rows('brands_grid') ): the_row();
+                            $brand_grid_title = get_sub_field('title');
+                            $images = get_sub_field('images');
+                        ?>
+                        <div class="p-t-6 text-center">
+                           <h3 class="p-b-6"><?php echo $brand_grid_title; ?> </h3>
+                           <?php 
+                                $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                                if( $images ): ?>
+                                    <ul class="grid-container grid-4-col">
+                                        <?php foreach( $images as $image_id ): ?>
+                                            <li>
+                                                <?php echo wp_get_attachment_image( $image_id["id"], $size ); ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+                        </div>   
+                    <?php endwhile;
+            endif;?>
+        </div>
+    </section>
     <!-- Trending Slider -->
     <?php
-        if( have_rows('trending_slider') ):
-            while( have_rows('trending_slider') ): the_row();
-                $hp_trending_title = get_sub_field('title');
-                $hp_trending_slider = get_sub_field('slider_content');
+        if( have_rows('partnership_slider') ):
+            while( have_rows('partnership_slider') ): the_row();
+                $slider_title = get_sub_field('title');
+                $slider_content = get_sub_field('slider_content');
             ?>
-                <section id="trending-slider" 
+                <section id="partnership-slider" 
                         class="slider text-left">
                     <h3>
-                        <?php echo $hp_trending_title; ?>
+                        <?php echo $slider_title; ?>
                     </h3>
                     <!-- Slider Content -->
                     <div class="swiper-container">
@@ -77,6 +112,23 @@ get_header();
             <?php endwhile;
         endif; 
     ?>
+     <?php 
+            if( have_rows('contact_form') ):
+                while( have_rows('contact_form') ): the_row();
+                    $form_title= get_sub_field('title');
+                    $form_subheader = get_sub_field('sub_header');
+                ?>
+                <div class="p-y-6 text-center">
+                    <h3 class="p-b-6"><?php echo $form_title; ?> </h3>
+                    <p class="page-width"><?php echo $form_subheader; ?></p>
+                    <form class="page-width p-y-6">
+                        <label for="name"></label>
+                        <input type="text" id="name" placeholder="name">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>   
+            <?php endwhile;
+    endif;?>
 </main><!-- #main -->
 
 

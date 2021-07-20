@@ -9054,6 +9054,10 @@ input[type=range]::-ms-thumb {
     margin-top: 1.2rem;
   }
 }
+#primary {
+  background-color: #FBF9F6;
+}
+
 html, body, button, a {
   font-family: "Helvetica";
 }
@@ -9154,6 +9158,22 @@ p, .body-font, .principles-media-list h4, .body-font span, .principles-media-lis
     font-size: 1.7rem;
     letter-spacing: -0.02em;
     line-height: 2rem;
+  }
+}
+
+.large-body-copy p {
+  color: black;
+  font-family: "Helvetica";
+  font-size: 3rem;
+  font-weight: 500 !important;
+  letter-spacing: 0;
+  line-height: 4.2rem;
+}
+@media (max-width: 599px) {
+  .large-body-copy p {
+    font-size: 2.5rem;
+    letter-spacing: 0;
+    line-height: 3.5rem;
   }
 }
 
@@ -9393,6 +9413,11 @@ p, .body-font, .principles-media-list h4, .body-font span, .principles-media-lis
   color: white;
 }
 
+.page-width {
+  max-width: 798px;
+  margin: 0 auto;
+}
+
 .m-3 {
   margin: 3rem 3.5rem;
 }
@@ -9438,12 +9463,41 @@ p, .body-font, .principles-media-list h4, .body-font span, .principles-media-lis
   }
 }
 
+.p-b-3 {
+  padding-bottom: 3rem;
+}
+@media (max-width: 599px) {
+  .p-b-3 {
+    padding-bottom: 2rem;
+  }
+}
+
+.p-b-6 {
+  padding-bottom: 6rem;
+}
+@media (max-width: 599px) {
+  .p-b-6 {
+    padding-bottom: 3rem;
+  }
+}
+
 .p-t-6 {
   padding-top: 6rem;
 }
 @media (max-width: 599px) {
   .p-t-6 {
     padding-top: 4rem;
+  }
+}
+
+.p-y-6 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+@media (max-width: 599px) {
+  .p-y-6 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 
@@ -9592,6 +9646,10 @@ p, .body-font, .principles-media-list h4, .body-font span, .principles-media-lis
   display: grid;
 }
 
+.grid-container {
+  display: grid;
+}
+
 .grid-2-col {
   grid-template-columns: 1fr;
   gap: 20px;
@@ -9624,6 +9682,17 @@ p, .body-font, .principles-media-list h4, .body-font span, .principles-media-lis
 @media (min-width: 600px) {
   .grid-3-col {
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+.grid-4-col {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (min-width: 600px) {
+  .grid-4-col {
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
   }
 }
