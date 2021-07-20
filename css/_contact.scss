@@ -1,0 +1,26 @@
+.page-contact {
+    .contact-main-image {
+        @include for-tablet-landscape-up {
+            max-height:calc(100vh - 194px);
+            align-content: flex-start;
+            justify-self: flex-end;
+            img {
+                height: 100%;
+            }
+        }
+        @include for-phone-only {
+            grid-row: 1/1;
+        }
+    }
+    @include for-phone-only {
+        p {
+            margin: 0;
+        }
+        .small {
+            p {
+                line-height: 1.68rem !important;
+                margin: 0;
+            }
+        }
+    }
+}

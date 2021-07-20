@@ -1,0 +1,46 @@
+.page-faq {
+    .entry-header {
+        h2 {
+            @include for-phone-only {
+                grid-row: 2/2;
+                br {
+                    display: none;
+                }
+            }
+        }
+    }
+   
+    .faq-section {
+        a, a span {
+            &:hover {
+                color: $red;
+            }
+        }
+        a{
+            &::before {
+                content: '→';
+                display: inline-block;
+                margin-right: 1rem;
+                @include for-phone-only {
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+
+
+   
+        section .grid-2-col {
+            @include for-phone-only {
+                gap: 0;
+                > div:nth-child(2) {
+                    > div:first-child {
+                        h4 {
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+    }
+       
+}

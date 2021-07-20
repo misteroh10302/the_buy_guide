@@ -1,0 +1,44 @@
+.newsletter-wrapper {
+    > div {
+        display: flex;
+        align-items: baseline;
+    }
+    h4 {
+        @extend .parent-category;
+        margin-right: 2rem;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $black;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: $black;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        color: $black;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        color: $black;
+    }
+    input#email {
+        max-width: 30.5rem;
+        margin-bottom: 0 !important;
+        border: 0;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    label {
+        position: absolute;
+        left: -99999999999px !important;
+    }
+    .input-field {
+        margin: 0;
+        padding: .65rem 2rem;
+        border-radius: 32px;
+        border: 1px solid $subheadColor;
+        width: 337px;
+        @include for-phone-only {
+           width: 100%;
+        }
+    }
+}

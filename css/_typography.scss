@@ -1,0 +1,339 @@
+// FONTS
+$sansSerif: "Helvetica";
+
+html,body,button,a {
+    font-family: $sansSerif;
+}
+
+a {
+    color: $black;
+    text-decoration: none;
+    &:visited {
+        color: $black;
+    }
+    &:hover, &:focus {
+        color: lighten($black, 50);
+    }
+}
+
+
+h1,h2,h3,h4,h5,h6,p {
+    margin:0;
+    
+}
+
+h1, .primary-heading {
+    color: $black;
+    font-family: $sansSerif;
+    font-size: 6.5rem;
+    letter-spacing: 2px;
+    line-height: 7.3rem;
+    text-transform: uppercase;
+    @include for-phone-only {    
+        font-size: 4.5rem; 
+        letter-spacing: 1.4px;
+        line-height: 4.5rem;
+     }
+     &.site-title {
+         margin-top: 0;
+     }
+}
+
+h2, .secondary-heading {
+    color: $black;
+    font-family: $sansSerif;
+    font-size: 9.5rem;
+    letter-spacing: 3.5px;
+    line-height: 11.5rem;
+    font-weight: bold;
+    @include for-phone-only {    
+        font-size: 5.5rem;
+        letter-spacing: 2px;
+        line-height: 6rem;
+     }
+}
+
+h3, .tertiary-heading {
+    color: $black;
+    font-family: $sansSerif;
+    font-size: 2rem;
+    letter-spacing: 0px;
+    line-height: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-weight: 400;
+    @include for-phone-only {    
+        font-size: 1.7rem;
+        letter-spacing: 0;
+        line-height: 2.5rem;
+     }
+}
+
+h4, .fourth-heading {
+    color: $black;
+    font-family: $sansSerif;
+    font-size: 4rem;
+    letter-spacing:-.005em;
+    line-height: 4rem;
+    @include for-phone-only {    
+        font-size: 2.8rem;
+        letter-spacing: -.005em;
+        line-height: 2.9rem;
+     }
+}
+
+p, .body-font, .body-font span {
+    color: $black;
+    font-family: $sansSerif;
+    font-size: 2.5rem;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
+    line-height: 2.9rem;
+    @include for-phone-only {    
+        font-size: 1.7rem;
+        letter-spacing: -.02em;
+        line-height: 2rem;
+     }
+}
+
+
+.parent-category {
+    font-size: 1.4rem;
+    letter-spacing: 0.4px;
+    line-height: 2.8rem;
+    text-transform: uppercase;
+}
+
+
+.subhead {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    line-height: 2rem;
+    text-transform: uppercase;
+    color: $subheadColor;
+}
+
+.small {
+    color: $black;
+    font-family: $sansSerif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -.005em;
+    line-height: 2.04rem;
+    @include for-phone-only {    
+        font-size: 1.4rem;
+        letter-spacing: -.01em;
+        line-height: 1.68rem;
+     }
+}
+
+
+#primary-menu-bottom {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        a {
+            @extend .tertiary-heading;
+            font-size: 4rem;
+            letter-spacing: -0.5px;
+            line-height: 4rem;
+            font-weight: 600 !important;
+            &:hover {
+                color: $red;
+                &::before {
+                    content: '\2197';
+                    display: inline-block;
+                    margin-right: 1rem;
+                    @include for-phone-only {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.current_page_item a{
+    color: $red;
+}
+
+#primary-menu {
+    width: 100%;
+    @extend .flex-container;
+    justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    li a{
+        color: $black;
+        font-family: $sansSerif;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 3.5rem;
+        letter-spacing: 0.34px;
+        color: $black;
+        padding: 0;
+    }
+}
+.menu-menu-1-container {
+    width: 100%;
+    @extend .flex-container;
+    justify-content: space-between;
+    padding: 0 3rem;
+    border-top: 1px solid $footerBackground;
+}
+
+.outlined-text {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: white;
+    text-transform: uppercase;
+    word-break: break-word;
+    hyphens: auto;
+    // text-stroke: 1px $black;
+    @include for-phone-only {
+        -webkit-text-stroke-width: 1.5px;
+    }
+}
+
+  .pull-quote {
+        span {
+            font-weight: bold !important;
+        }
+      > span {
+          @extend .small;
+          font-weight: 400 !important;
+      }
+  }
+
+.btn {
+    border: 0;
+    background-color: transparent;
+    color: $black;
+    box-shadow: none;
+    &:hover {
+        box-shadow: none;
+    }
+}
+
+  .btn-border {
+    border: 0.8px solid black;
+    height: 32px;
+    min-width: 100px;
+    text-align: center;
+    padding: 1rem;
+    width: 34px;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    text-transform: capitalize;
+    letter-spacing: -0.05px;
+    font-weight: 400 !important;
+    line-height: 1rem !important;
+    @include for-phone-only {
+        line-height: 1.2rem !important;
+        border: 1px solid black;
+    }
+    &:hover, &:focus {
+        background-color: $red;
+        color: $black;
+    }
+  }
+
+  .font-weight-light {
+      font-weight: 400;
+      a {
+        font-weight: 400 !important;
+      }
+  }
+
+  .btn-newsletter {
+      @extend .small;
+      padding: 0;
+      @include for-phone-only {
+          margin: 1rem 0 2rem;
+      }
+  }
+
+  .font-regular {
+      font-weight: 400 !important;
+  }
+
+/* Text-Align
+--------------------------------------------- */
+
+.text-center {
+    text-align: center;
+}
+
+
+.text-right {
+    text-align: right;
+}
+
+
+.text-left {
+    text-align: left;
+}
+
+
+/* BTN
+--------------------------------------------- */
+
+.product-cta-button {
+    font-size: 1.5rem;
+    letter-spacing: 0.32px;
+    line-height: 4.3rem;
+    background-color: $footerBackground;
+    border-radius: 30px;
+    height: 43px;
+    &.button-darker {
+        background-color: $shopButton;
+        &:focus {
+            color: black;
+            background-color: darken($shopButton, 10);
+        }
+    }
+    &:hover {
+        color: white;
+        background-color: black;
+    }
+    &:focus {
+        color: black;
+        background-color: darken($footerBackground, 10);
+    }
+}
+
+/* Product Card
+--------------------------------------------- */
+.product-detail-listing {
+    font-size: 1.5rem;
+    letter-spacing: 0.3px;
+    line-height: 3.1rem;
+    font-weight: 500;
+    @include for-phone-only {
+        font-size: 1.3rem;
+        letter-spacing: 0.28px;
+        line-height: 2.5rem;
+    }
+}
+ 
+
+/* Button
+--------------------------------------------- */
+.btn-rounded {
+    padding: 0.5rem 2.5rem;
+    border-radius: 32px;
+    height: 45px;
+}
+
+.btn-cta {
+    background-color: $btnBackground;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    letter-spacing: .32px;
+    &:hover {
+        background-color: $black;
+        color: $white;
+    }
+}

@@ -1,0 +1,8 @@
+.page-about {
+    .about-top-text {
+        @include for-phone-only {
+            grid-row: 2/3;
+        }
+    }
+    
+}

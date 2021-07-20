@@ -1,0 +1,58 @@
+.site-footer {
+    background-color: $footerBackground;
+    padding: 3.7rem 2.4rem;
+    .site-info {
+        .footer-top{ 
+            @extend .flex-container;
+            .footer-logo-wrapper {
+                width: 16.66%;
+            }
+        }
+    }
+    .footer-middle {
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+         @include for-phone-only {
+                grid-template-columns: repeat(1, 1fr);
+            }
+    }
+
+    .footer-bottom {
+        display: grid;
+        grid-template-columns: 3fr 3fr;
+        @include for-phone-only {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        margin-top: 13.7rem;
+        align-items: baseline;
+        ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            @include for-phone-only {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            li {
+                a {
+                    @extend .subhead;
+                }
+            }
+        }
+    }
+
+    @include for-tablet-portrait-up {
+        padding: 7.5rem 10.3rem;
+    }
+}
+
+.menu-footer-container {
+    width: 100%;
+}
+ul#footer-menu {
+    width: 100%;
+        @extend .grid;
+        grid-template-columns: repeat(5, 20%);
+        gap: 0;
+        li a {
+            @extend .parent-category;
+        }
+}

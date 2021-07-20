@@ -1,0 +1,28 @@
+.desktop-only {
+    visibility: hidden;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    @include for-tablet-portrait-up {    
+        visibility: visible;
+        overflow: visible;
+     }
+}
+
+.mobile-only {
+    visibility: visible;
+    height: initial;
+    overflow: visible;
+    @include for-tablet-portrait-up {    
+        visibility: hidden;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+     }
+}
+
+
+
+

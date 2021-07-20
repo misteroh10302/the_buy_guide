@@ -1,0 +1,224 @@
+.page-community {
+    position: relative;
+}
+
+.principle-container {
+    position: relative;
+    &:last-child {
+        .principles-media-list {
+            @include for-tablet-landscape-up {
+                transform: translateY(-80%);
+            }
+        }
+    }
+}
+
+.principles-media {
+    max-width: 500px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    opacity: 0;
+    z-index: 999999;
+    @include for-phone-only {
+        display: none;
+    }
+}
+
+.principles-media-list {
+    opacity: 0;
+    position: absolute;
+    width: calc(50vw - 30rem);
+    left: calc(50vw - 4rem);
+    color: $red;
+    top: 0rem;
+    img {
+        width: 100% !important;
+    }
+    h4,p,span,a {
+        color: $red;
+    }
+    h4 {
+        @extend .body-font;
+        color: $red !important;
+        span {
+            color: $red !important;
+            font-weight: 600 !important;
+        }
+
+        @include for-phone-only {
+            font-size: 2.8rem;
+            line-height: 3.3rem;
+            span {
+                font-size: 2.8rem;
+                line-height: 3.3rem;
+            }
+        }
+       
+    }
+    p,span, a {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
+    @include for-phone-only {
+        position: initial;
+        display: none;
+    }
+}
+
+.principles-media-list {
+    h4 {
+        @extend .body-font;
+    }
+}
+
+.selected {
+    color: $red;
+}
+.principle-open {
+    @include for-phone-only {
+        .principles-text-hover {
+            color: $red;
+           
+        }
+        .principles-media-list {
+            display: block;
+            opacity: 1;
+            width: 100%;
+            padding-left: 2rem;
+            width: 90%;
+        }
+    }
+}
+
+.principles-text-hover {
+    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+        color: $red;
+    }
+    @include for-phone-only {
+        font-size: 3.8rem;
+        letter-spacing: -1px;
+        line-height: 3.5rem;
+        br {
+            content: "";
+            margin: .5rem;
+            display: block;
+        }
+    }
+    @include for-tablet-landscape-up {
+        &:hover {
+            cursor: pointer;
+            color: $red;
+        + .principles-media {
+                opacity: 1;
+            }
+            + .principles-media-list {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.page-community {
+        .swiper-slide {
+            text-align: left;
+            font-size: initial;
+            display: block;
+            box-sizing: border-box;
+        }   
+}
+
+.right-column {
+    .principles-text-hover {
+        pointer-events: none;
+    }
+}
+
+.top-image {
+    top: 360px;
+}
+
+.left-column {
+    .principle-open {
+        h3 {
+            &::before {
+                content: '↗';
+                display: inline-block;
+                margin-right: 0rem;
+                @include for-phone-only {
+                }
+            }
+        }
+    }
+    h3 {
+        &:hover {
+            &::before {
+                content: '↗';
+                display: inline-block;
+                margin-right: 0rem;
+                @include for-phone-only {
+                }
+            }
+        }
+    }
+}
+@include for-phone-only { 
+    .left-mobile, .right-mobile {
+        width: 100vw;
+    }
+    .right-mobile {
+        // padding-left: 1.5rem;
+    }
+    .right-column {
+        &.desktop-only {
+            display: none;
+        }
+    }
+    .swiper-container {
+        position: relative;
+        top: -1px; 
+    }
+    .page-community {
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 2rem;
+        }
+        .swiper-slide {
+            text-align: left;
+            display: block;
+            width: calc(100% - 45.83px);
+            font-size: inherit;
+            &:first-child {
+                border-right: 1px solid black;
+            }
+        }
+        .swiper-button-prev:after,  .swiper-button-next:after {
+            content: '→';
+            font-family: $sansSerif;
+        }
+        .swiper-button-prev:after {
+            transform: rotate(-180deg);
+        }
+        .swiper-button-next,  .swiper-button-prev {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            position: fixed;
+            bottom: 2rem;
+            right: 1.5rem;
+            top: 93vh;
+            height: 60px;
+            color: black;
+            font-size: 1.5rem;
+            top: 95vh;
+            height: 30px;
+        }
+        .swiper-button-disabled {
+            display: none;
+        }
+    }
+}
