@@ -1,12 +1,20 @@
 #masthead {
     border-bottom: 1px solid $sticker;
-    position: sticky;
+    position: fixed;
     top: -.5px;
-    background-color: $background;
+    background-color: transparent;
     z-index: 100;
+    width: 100%;
+    transition: 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    .custom-logo-link {
+        max-width: 250px;
+    }
     nav {
-        background-color: $background;
+        background-color: transparent;
         box-shadow: none;
+    }
+    &.scrolled {
+        background-color: $background;
     }
     @include for-phone-only {   
         padding: 0; 

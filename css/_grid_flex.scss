@@ -19,6 +19,15 @@
 }
 
 
+
+.p-6 {
+    padding: 6rem;
+    @include for-phone-only {
+        padding: 3rem;
+    }
+}
+
+
 .p-3 {
     padding: 3rem 3.5rem;
     @include for-phone-only {
@@ -62,6 +71,24 @@
     }
 }
 
+.p-y-2 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    @include for-phone-only {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
+}
+
+
+.p-y-3 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    @include for-phone-only {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
 
 .p-y-6 {
     padding-top: 6rem;
@@ -205,6 +232,9 @@
 
 .grid-container {
     display: grid;
+    &.no-gap {
+        gap: 0;
+    }
 }
 
 .grid-2-col {
@@ -465,4 +495,12 @@ Image Helper Styles
 -----------------------------------------------------------------------------*/
 .responsive-image {
     width: 100%;
+}
+
+
+/* --------------------------------------------------------------------------
+Borders
+-----------------------------------------------------------------------------*/
+.border-top{
+    border-top: 1px solid lightgray;
 }

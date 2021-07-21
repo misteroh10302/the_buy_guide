@@ -12,36 +12,21 @@ get_header();
 
 <main id="primary" class="partnerships">
      <!-- Header Banner -->
-     <?php
+    <?php
         if( have_rows('header_banner') ):
             while( have_rows('header_banner') ): the_row();
                 $hp_banner_headline = get_sub_field('banner_headline');
                 $hp_banner_image = get_sub_field('banner_image'); 
-            ?>
-                <section id="home-header-banner" 
-                        style="background-image: url(<?php echo $hp_banner_image['url'] ?>);" 
-                        class="banner text-center background-image p-1">
-                    <h2 class="outlined-text">
-                        <?php echo $hp_banner_headline ?>
-                    </h2>
-                    <?php 
-                        if( have_rows('button') ):
-                            while( have_rows('button') ): the_row();
-                                $hp_button_label = get_sub_field('label');
-                                $hp_button_link = get_sub_field('link'); 
-                            ?>
-                            <div class="p-t-9">
-                                <a class="btn btn-rounded btn-cta" href="<?php echo $hp_button_link ?>">
-                                    <?php echo $hp_button_label ?>
-                                </a>
-                            </div>   
-                        <?php endwhile;
-                    endif;?>
-                </section>
+            ?>  
+                <?php get_template_part( 'template-parts/content', 'banner', 
+                    array(
+                        'image'=> $hp_banner_image,
+                        'headline'=> $hp_banner_headline
+                    )
+                ); ?>
             <?php endwhile;
         endif; 
     ?>
-   
    <!-- Body Copy -->
    <section class="p-y-6 page-width">
         <div class="text-center large-body-copy">
@@ -77,7 +62,8 @@ get_header();
             endif;?>
         </div>
     </section>
-    <!-- Trending Slider -->
+    
+    <!-- Partnerships Slider -->
     <?php
         if( have_rows('partnership_slider') ):
             while( have_rows('partnership_slider') ): the_row();

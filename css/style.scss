@@ -981,19 +981,21 @@ textarea {
 @import "colors.scss";
 @import "typography.scss";
 @import "grid_flex.scss";
+@import "responsive.scss";
 
 @import "header.scss";
 @import "footer.scss";
 @import "newsletter.scss";
 @import "productcard.scss";
+@import "swiper.scss";
 
 @import "home.scss";
 @import "principles.scss";
 @import "faq.scss";
 @import "contact.scss";
 @import "about.scss";
+@import "productsingle.scss";
 
-@import "responsive.scss";
 
 
 * {
@@ -1022,4 +1024,8 @@ a {
 
 ul,ol {
 	margin: 0;
+}
+
+.breadcrumb {
+	color: $black;
 }

@@ -1,0 +1,25 @@
+.product-template {
+    padding-top: 15.3rem;
+    .breadcrumb {
+        @extend .subhead;
+        color: $subheadColor;
+        a {
+            color: $subheadColor;
+        }
+    }
+    .product-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: $footerBackground;
+        border-radius: 30px;
+        overflow: hidden;
+        line-height: 0;
+        .product-details-item {
+            border-top: 1px solid lightgray;
+            padding: 1rem 0;
+            &:last-child {
+                border-bottom: 1px solid lightgray;
+            }
+        }
+    }
+}

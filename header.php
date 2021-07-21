@@ -48,7 +48,6 @@
 				$the_buy_guide_description = get_bloginfo( 'description', 'display' );
 				if ( $the_buy_guide_description || is_customize_preview() ) :
 					?>
-					<!-- <p class="site-description"><?php echo $the_buy_guide_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p> -->
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 			<div class="col s3 m4 text-right">

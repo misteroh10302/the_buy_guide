@@ -60,7 +60,6 @@ const INIT_SWIPER_GALLERIES = () => {
 	const $allSwipers = document.querySelectorAll('.swiper-container');
 	
 	$allSwipers.forEach((el,i) => {
-		console.log(el)
 		const swiper = new Swiper(el, {
 			direction: 'horizontal',
 			 // Default parameters
@@ -94,6 +93,23 @@ const INIT_SWIPER_GALLERIES = () => {
 			}
 		})
 	});
+
+	const $FEATURED_PRESS_SWIPER = document.querySelectorAll('.featured-swiper-container');
+
+	$FEATURED_PRESS_SWIPER.forEach((el,i) => {
+		let swiper = new Swiper(el, {
+			loop: true,
+			pagination: {
+				el: el.querySelector(".swiper-pagination"),
+				type: "bullets",
+			},
+			navigation: {
+				nextEl: el.querySelector(".swiper-button-next"),
+				prevEl: el.querySelector(".swiper-button-prev"),
+			},
+      });
+	});
+
 }
 
 window.onload = () => {

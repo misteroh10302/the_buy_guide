@@ -54,6 +54,48 @@ if ( ! function_exists( 'the_buy_guide_setup' ) ) :
 			)
 		);
 
+				/**
+		 * Generate breadcrumbs
+		 * @author CodexWorld
+		 * @authorURL www.codexworld.com
+		 */
+		function get_breadcrumb() {
+			echo '<a href="'.home_url().'" rel="nofollow">Home</a>';
+			if (is_category() || is_single()) {
+				echo " &#8594; ";
+				the_category(' &#8594; ');
+					if (is_single()) {
+						echo " &#8594; ";
+						the_title();
+					}
+			} elseif (is_page()) {
+				echo "&#8594;";
+				echo the_title();
+			} elseif (is_search()) {
+				echo "&nbsp;&nbsp;&#187;&nbsp;&nbsp;Search Results for... ";
+				echo '"<em>';
+				echo the_search_query();
+				echo '</em>"';
+			}
+		}
+
+		// Set popular posts
+		/*
+		* Set post views count using post meta
+		*/
+		function setPostViews($postID) {
+			$countKey = 'post_views_count';
+			$count = get_post_meta($postID, $countKey, true);
+			if($count==''){
+				$count = 0;
+				delete_post_meta($postID, $countKey);
+				add_post_meta($postID, $countKey, '0');
+			}else{
+				$count++;
+				update_post_meta($postID, $countKey, $count);
+			}
+		}
+
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -136,14 +178,50 @@ function the_buy_guide_widgets_init() {
 }
 add_action( 'widgets_init', 'the_buy_guide_widgets_init' );
 
+// Add jQuery
+add_action( 'init', function(){
+	if (  ! is_admin()) {
+		if( is_ssl() ){
+			$protocol = 'https';
+		}else {
+			$protocol = 'http';
+		}
+
+		/** @var WP_Scripts $wp_scripts */
+		global  $wp_scripts;
+		/** @var _WP_Dependency $core */
+		$core = $wp_scripts->registered[ 'jquery-core' ];
+		$core_version = $core->ver;
+		$core->src = "$protocol://ajax.googleapis.com/ajax/libs/jquery/$core_version/jquery.min.js";
+
+		if ( WP_DEBUG ) {
+			/** @var _WP_Dependency $migrate */
+			$migrate         = $wp_scripts->registered[ 'jquery-migrate' ];
+			$migrate_version = $migrate->ver;
+			$migrate->src    = "$protocol://cdn.jsdelivr.net/jquery.migrate/$migrate_version/jquery-migrate.min.js";
+		}else{
+			/** @var _WP_Dependency $jquery */
+			$jquery = $wp_scripts->registered[ 'jquery' ];
+			$jquery->deps = [ 'jquery-core' ];
+		}
+
+    }
+
+
+},11 );
+
 /**
  * Enqueue scripts and styles.
  */
+
 function the_buy_guide_scripts() {
 	wp_enqueue_style( 'the-buy-guide-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'the-buy-guide-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'the-buy-guide-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	
+	// add custom script
+	wp_enqueue_script( 'the-buy-guide-custom-functions', get_template_directory_uri() . '/js/custom-js.js', array('jquery'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -1,7 +1,7 @@
 <?php
 /**
- * The template for displaying all single posts
- *
+ * Template Name: Product Template 
+ * Template Post Type: post, page, product
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package The_Buy_Guide
@@ -11,12 +11,12 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			
-			get_template_part( 'template-parts/content', get_post_type() );
+			setPostViews(get_the_ID());
+
+			get_template_part( 'template-parts/content', 'product' );
 
 			// the_post_navigation(
 			// 	array(
